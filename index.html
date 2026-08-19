@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联机 · 裁决</title>
+    <title>qym1421.■■■.■</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <!-- 语言切换 -->
-        <div class="lang-bar">
-            <button class="lang-btn active" data-lang="zh">中文</button>
-            <button class="lang-btn" data-lang="en">English</button>
+    <div id="app">   <!-- 无主题类，默认亮色 -->
+        <!-- 顶部控制栏 -->
+        <div class="control-bar">
+            <div class="lang-group">
+                <span class="label">语言</span>
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
+            <div class="style-group">
+                <span class="label">风格</span>
+                <button class="style-btn active" data-theme="light">正常</button>
+                <button class="style-btn" data-theme="dark">暗黑</button>
+            </div>
         </div>
 
-        <!-- 中文 -->
+        <!-- 中文内容 -->
         <div id="content-zh" class="content active">
             <header>
-                <h1>哼。联机。</h1>
-                <p class="sub">字句极省。裁决即定。</p>
+                <h1 id="zh-title">联机指南</h1>
+                <p id="zh-sub" class="sub">简单几步，即可联机</p>
             </header>
 
             <section class="tutorial">
@@ -69,15 +77,15 @@
             </section>
 
             <footer>
-                <p>哼。完毕。</p>
+                <p id="zh-footer">— 完 —</p>
             </footer>
         </div>
 
-        <!-- 英文 -->
+        <!-- 英文内容 -->
         <div id="content-en" class="content">
             <header>
-                <h1>Hmph. Connect.</h1>
-                <p class="sub">Words few. Verdict given.</p>
+                <h1 id="en-title">Connection Guide</h1>
+                <p id="en-sub" class="sub">Get started in a few steps</p>
             </header>
 
             <section class="tutorial">
@@ -128,38 +136,74 @@
             </section>
 
             <footer>
-                <p>Hmph. Done.</p>
+                <p id="en-footer">— End —</p>
             </footer>
         </div>
     </div>
 
     <script>
         (function() {
-            // 语言切换
-            const btns = document.querySelectorAll('.lang-btn');
-            const zh = document.getElementById('content-zh');
-            const en = document.getElementById('content-en');
+            // ---- DOM 元素 ----
+            const zhTitle = document.getElementById('zh-title');
+            const zhSub = document.getElementById('zh-sub');
+            const zhFooter = document.getElementById('zh-footer');
+            const enTitle = document.getElementById('en-title');
+            const enSub = document.getElementById('en-sub');
+            const enFooter = document.getElementById('en-footer');
 
-            function setLang(lang) {
-                btns.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.lang === lang);
-                });
-                if (lang === 'zh') {
-                    zh.classList.add('active');
-                    en.classList.remove('active');
-                } else {
-                    en.classList.add('active');
-                    zh.classList.remove('active');
-                }
+            const langBtns = document.querySelectorAll('.lang-btn');
+            const styleBtns = document.querySelectorAll('.style-btn');
+            const app = document.getElementById('app');
+
+            // ---- 根据主题更新文案 ----
+            function updateThemeTexts(theme) {
+                const isDark = (theme === 'dark');
+
+                // 中文
+                zhTitle.textContent = isDark ? '呀，你找到我了呀？' : '联机指南';
+                zhSub.textContent = isDark ? '乖乖留下来吧~' : '简单几步，即可联机';
+                zhFooter.textContent = isDark ? '你喜欢我？' : '— 完 —';
+
+                // 英文
+                enTitle.textContent = isDark ? 'Oh my, you found me?' : 'Connection Guide';
+                enSub.textContent = isDark ? 'Stay with me, okay~' : 'Get started in a few steps';
+                enFooter.textContent = isDark ? 'Do you like me?' : '— End —';
             }
 
-            btns.forEach(btn => {
+            // ---- 风格切换 ----
+            function setTheme(theme) {
+                // 更新按钮激活状态
+                styleBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.theme === theme);
+                });
+                // 切换暗黑类
+                app.classList.toggle('theme-dark', theme === 'dark');
+                // 更新文案
+                updateThemeTexts(theme);
+            }
+
+            styleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
+                });
+            });
+
+            // ---- 语言切换 ----
+            function setLang(lang) {
+                langBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                document.getElementById('content-zh').classList.toggle('active', lang === 'zh');
+                document.getElementById('content-en').classList.toggle('active', lang === 'en');
+            }
+
+            langBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     setLang(this.dataset.lang);
                 });
             });
 
-            // 复制功能
+            // ---- 复制功能 ----
             document.querySelectorAll('.copy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -202,6 +246,9 @@
                     btn.classList.remove('copied');
                 }, 2000);
             }
+
+            // ---- 初始化：默认亮色 ----
+            setTheme('light');
         })();
     </script>
 </body>

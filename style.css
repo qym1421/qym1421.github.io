@@ -1,23 +1,70 @@
-/* 颜色方案（按序使用） */
+/* ===== 颜色变量：亮色主题（默认） ===== */
 :root {
-    --c1: #1F0010;
-    --c2: #3A0018;
-    --c3: #4D0013;
-    --c4: #660016;
-    --c5: #7F0016;
-    --c6: #99001A;
-    --c7: #B3001B;
-    --c8: #C40020;
-    --c9: #D40B2E;
-    --c10: #E61B3C;
-    --c11: #E83350;
-    --c12: #F04256;
-    --c13: #F06474;
-    --c14: #F2798C;
-    --c15: #B8092F;
-    --c16: #2C0011;
+    --bg-body: #f5f0ed;
+    --bg-app: #ffffff;
+    --bg-scheme: #faf7f5;
+    --text-header: #1F0010;
+    --text-sub: #3A0018;
+    --text-body: #2C0011;
+    --text-strong: #4D0013;
+    --text-muted: #7F0016;
+    --border-main: #d0c8c4;
+    --border-scheme: #B3001B;
+    --link-color: #B3001B;
+    --link-hover: #D40B2E;
+    --badge-bg: #E61B3C;
+    --badge-text: #ffffff;
+    --id-bg: #f0e8e4;
+    --id-text: #1F0010;
+    --btn-bg: #ffffff;
+    --btn-border: #B3001B;
+    --btn-text: #B3001B;
+    --btn-hover-bg: #B3001B;
+    --btn-hover-border: #B3001B;
+    --btn-hover-text: #ffffff;
+    --copy-bg: #ffffff;
+    --copy-border: #B3001B;
+    --copy-text: #B3001B;
+    --copy-hover-bg: #B3001B;
+    --copy-hover-border: #B3001B;
+    --copy-hover-text: #ffffff;
+    --footer-color: #7F0016;
 }
 
+/* ===== 暗黑主题（覆盖） ===== */
+.theme-dark {
+    --bg-body: #1F0010;
+    --bg-app: #3A0018;
+    --bg-scheme: #2C0011;
+    --text-header: #F06474;
+    --text-sub: #E83350;
+    --text-body: #F2798C;
+    --text-strong: #F04256;
+    --text-muted: #B3001B;
+    --border-main: #4D0013;
+    --border-scheme: #C40020;
+    --link-color: #E61B3C;
+    --link-hover: #F06474;
+    --badge-bg: #B3001B;
+    --badge-text: #f0d0d0;
+    --id-bg: #1F0010;
+    --id-text: #F2798C;
+    --btn-bg: #3A0018;
+    --btn-border: #7F0016;
+    --btn-text: #D40B2E;
+    --btn-hover-bg: #99001A;
+    --btn-hover-border: #E61B3C;
+    --btn-hover-text: #ffffff;
+    --copy-bg: #3A0018;
+    --copy-border: #7F0016;
+    --copy-text: #D40B2E;
+    --copy-hover-bg: #99001A;
+    --copy-hover-border: #E61B3C;
+    --copy-hover-text: #ffffff;
+    --footer-color: #4D0013;
+}
+
+/* ===== 基础重置 ===== */
 * {
     margin: 0;
     padding: 0;
@@ -25,8 +72,8 @@
 }
 
 body {
-    background-color: var(--c1);
-    color: var(--c14);
+    background-color: var(--bg-body);
+    color: var(--text-body);
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
@@ -34,123 +81,138 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #app {
     max-width: 820px;
     width: 100%;
-    background-color: var(--c2);
-    border: 1px solid var(--c7);
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-main);
     border-radius: 12px;
     padding: 2rem 2rem 1.5rem;
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-/* 语言切换栏 */
-.lang-bar {
+/* ===== 控制栏 ===== */
+.control-bar {
     display: flex;
-    gap: 0.5rem;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem 1.5rem;
     margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-main);
+    padding-bottom: 0.8rem;
 }
 
-.lang-btn {
+.lang-group, .style-group {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-right: 0.3rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.lang-btn, .style-btn {
     background: transparent;
-    border: 1px solid var(--c7);
-    color: var(--c13);
-    padding: 0.3rem 1.2rem;
-    font-size: 0.9rem;
+    border: 1px solid var(--btn-border);
+    color: var(--btn-text);
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.2s;
     font-weight: 300;
-    letter-spacing: 0.5px;
-    background-color: var(--c1);
+    background-color: var(--btn-bg);
 }
 
-.lang-btn:hover {
-    background-color: var(--c6);
-    color: #fff;
-    border-color: var(--c10);
+.lang-btn:hover, .style-btn:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    border-color: var(--btn-hover-border);
 }
 
-.lang-btn.active {
-    background-color: var(--c9);
-    color: #fff;
-    border-color: var(--c9);
+.lang-btn.active, .style-btn.active {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    border-color: var(--btn-hover-border);
     font-weight: 500;
 }
 
-/* 内容容器 */
+/* ===== 内容切换 ===== */
 .content {
     display: none;
     animation: fade 0.3s ease;
 }
-
 .content.active {
     display: block;
 }
-
 @keyframes fade {
     0% { opacity: 0.3; }
     100% { opacity: 1; }
 }
 
-/* 头部 */
+/* ===== 头部 ===== */
 header {
-    border-bottom: 1px solid var(--c4);
+    border-bottom: 1px solid var(--border-main);
     padding-bottom: 0.8rem;
     margin-bottom: 2rem;
 }
-
 header h1 {
     font-size: 2.6rem;
     font-weight: 400;
-    color: var(--c13);
+    color: var(--text-header);
     letter-spacing: -1px;
     line-height: 1.2;
 }
-
 header .sub {
-    color: var(--c11);
+    color: var(--text-sub);
     font-size: 0.9rem;
     margin-top: 0.2rem;
     font-style: italic;
 }
 
-/* 教程主体 */
+/* ===== 教程主体 ===== */
 .tutorial h2 {
     font-size: 1.5rem;
     font-weight: 300;
-    color: var(--c12);
+    color: var(--text-strong);
     margin: 1.8rem 0 1rem 0;
-    border-left: 4px solid var(--c9);
+    border-left: 4px solid var(--border-scheme);
     padding-left: 0.8rem;
 }
-
 .tutorial h2:first-of-type {
     margin-top: 0;
 }
 
 .scheme {
-    background-color: var(--c16);
-    border-left: 3px solid var(--c8);
+    background-color: var(--bg-scheme);
+    border-left: 3px solid var(--border-scheme);
     padding: 1.2rem 1.5rem;
     margin-bottom: 1.8rem;
     border-radius: 0 8px 8px 0;
+    transition: background-color 0.3s;
 }
-
 .scheme h3 {
     font-size: 1.2rem;
     font-weight: 400;
-    color: var(--c14);
+    color: var(--text-header);
     margin-bottom: 0.8rem;
 }
 
 .badge {
     display: inline-block;
-    background-color: var(--c7);
-    color: #f0d0d0;
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
     font-size: 0.7rem;
     padding: 0.1rem 0.8rem;
     border-radius: 20px;
@@ -163,58 +225,53 @@ header .sub {
     list-style: none;
     padding-left: 0;
 }
-
 .links li {
     margin: 0.4rem 0;
-    color: var(--c13);
+    color: var(--text-body);
 }
-
 .links ul {
     list-style: none;
     padding-left: 1.8rem;
     margin: 0.2rem 0;
 }
-
 .links ul li {
     margin: 0.2rem 0;
     font-size: 0.95rem;
 }
 
 a {
-    color: var(--c10);
+    color: var(--link-color);
     text-decoration: none;
-    border-bottom: 1px dotted var(--c7);
+    border-bottom: 1px dotted var(--border-main);
     transition: color 0.2s, border-color 0.2s;
 }
-
 a:hover {
-    color: var(--c14);
-    border-bottom-color: var(--c14);
+    color: var(--link-hover);
+    border-bottom-color: var(--link-hover);
 }
 
 .net-id, .room {
     margin-top: 0.8rem;
-    background-color: var(--c1);
+    background-color: var(--id-bg);
     padding: 0.6rem 1rem;
     border-radius: 6px;
-    border: 1px solid var(--c6);
+    border: 1px solid var(--border-main);
+    transition: background-color 0.3s;
 }
-
 .net-id strong, .room strong {
-    color: var(--c12);
+    color: var(--text-strong);
     margin-right: 0.8rem;
 }
-
 .id, .code {
-    color: var(--c14);
+    color: var(--id-text);
     font-family: 'Courier New', monospace;
     word-break: break-all;
     font-size: 0.9rem;
-    background-color: var(--c2);
+    background-color: var(--bg-app);
     padding: 0.1rem 0.4rem;
     border-radius: 4px;
+    transition: color 0.3s, background-color 0.3s;
 }
-
 .code {
     font-size: 0.75rem;
     display: inline-block;
@@ -225,53 +282,32 @@ a:hover {
 .project {
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--c5);
+    border-top: 1px solid var(--border-main);
 }
-
 .project h2 {
-    border-left-color: var(--c13);
+    border-left-color: var(--link-color);
 }
-
 .project p {
     margin-top: 0.5rem;
     font-size: 1.1rem;
 }
 
-/* 页脚 */
+/* ===== 页脚 ===== */
 footer {
     margin-top: 2.5rem;
     text-align: right;
-    border-top: 1px solid var(--c4);
+    border-top: 1px solid var(--border-main);
     padding-top: 1rem;
-    color: var(--c7);
+    color: var(--footer-color);
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-/* 响应式 */
-@media (max-width: 600px) {
-    #app {
-        padding: 1rem;
-    }
-    header h1 {
-        font-size: 2rem;
-    }
-    .scheme {
-        padding: 0.8rem 1rem;
-    }
-    .lang-bar {
-        justify-content: center;
-    }
-    .code {
-        font-size: 0.65rem;
-    }
-}
-
-/* 复制按钮 */
+/* ===== 复制按钮 ===== */
 #app .copy-btn {
-    background: var(--c2);          /* 深红底，非透明 */
-    border: 1px solid var(--c7);
-    color: var(--c12);              /* 亮红文字 */
+    background: var(--copy-bg);
+    border: 1px solid var(--copy-border);
+    color: var(--copy-text);
     font-size: 0.65rem;
     padding: 0.1rem 0.8rem;
     border-radius: 14px;
@@ -282,19 +318,44 @@ footer {
     vertical-align: middle;
     font-weight: 300;
     letter-spacing: 0.3px;
-    box-shadow: none;               /* 去除默认阴影 */
-    appearance: none;               /* 去除系统按钮样式 */
+    box-shadow: none;
+    appearance: none;
     -webkit-appearance: none;
 }
-
 #app .copy-btn:hover {
-    background: var(--c6);
-    border-color: var(--c10);
+    background: var(--copy-hover-bg);
+    border-color: var(--copy-hover-border);
+    color: var(--copy-hover-text);
+}
+#app .copy-btn.copied {
+    background: var(--link-color);
+    border-color: var(--link-color);
     color: #fff;
 }
 
-#app .copy-btn.copied {
-    background: var(--c9);
-    border-color: var(--c9);
-    color: #fff;
+/* ===== 响应式 ===== */
+@media (max-width: 600px) {
+    #app {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .scheme {
+        padding: 0.8rem 1rem;
+    }
+    .control-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    .lang-group, .style-group {
+        justify-content: center;
+    }
+    .code {
+        font-size: 0.65rem;
+    }
 }
+
+/* ===== 备注 ===== */
+/* .theme-light 无需定义，默认继承 :root 亮色 */
