@@ -31,37 +31,37 @@
     --footer-color: #7F0016;
 }
 
-/* ===== 暗黑主题（覆盖） ===== */
+/* ===== 暗黑主题（覆盖）—— 文字大幅提亮 ===== */
 .theme-dark {
     --bg-body: #1F0010;
     --bg-app: #3A0018;
     --bg-scheme: #2C0011;
-    --text-header: #F06474;
-    --text-sub: #E83350;
-    --text-body: #F2798C;
-    --text-strong: #F04256;
-    --text-muted: #B3001B;
-    --border-main: #4D0013;
+    --text-header: #FFD0D8;
+    --text-sub: #FF9EB0;
+    --text-body: #FFE0E6;
+    --text-strong: #FFA0B0;
+    --text-muted: #D0808C;
+    --border-main: #660016;
     --border-scheme: #C40020;
-    --link-color: #E61B3C;
-    --link-hover: #F06474;
+    --link-color: #FF6B82;
+    --link-hover: #FFB3C1;
     --badge-bg: #B3001B;
-    --badge-text: #f0d0d0;
+    --badge-text: #FFE0E6;
     --id-bg: #1F0010;
-    --id-text: #F2798C;
+    --id-text: #FFE0E6;
     --btn-bg: #3A0018;
-    --btn-border: #7F0016;
-    --btn-text: #D40B2E;
+    --btn-border: #99001A;
+    --btn-text: #FF9EB0;
     --btn-hover-bg: #99001A;
     --btn-hover-border: #E61B3C;
     --btn-hover-text: #ffffff;
     --copy-bg: #3A0018;
-    --copy-border: #7F0016;
-    --copy-text: #D40B2E;
+    --copy-border: #99001A;
+    --copy-text: #FF9EB0;
     --copy-hover-bg: #99001A;
     --copy-hover-border: #E61B3C;
     --copy-hover-text: #ffffff;
-    --footer-color: #4D0013;
+    --footer-color: #D0808C;
 }
 
 /* ===== 基础重置 ===== */
@@ -356,6 +356,3 @@ footer {
         font-size: 0.65rem;
     }
 }
-
-/* ===== 备注 ===== */
-/* .theme-light 无需定义，默认继承 :root 亮色 */
