@@ -31,40 +31,46 @@
     --footer-color: #7F0016;
 }
 
-/* ===== 暗黑主题（覆盖）—— 文字大幅提亮 ===== */
+/* ===== 暗黑主题（覆盖） ===== */
 .theme-dark {
     --bg-body: #1F0010;
     --bg-app: #3A0018;
     --bg-scheme: #2C0011;
-    --text-header: #FFD0D8;
-    --text-sub: #FF9EB0;
-    --text-body: #FFE0E6;
-    --text-strong: #FFA0B0;
-    --text-muted: #D0808C;
-    --border-main: #660016;
+    --text-header: #F06474;
+    --text-sub: #E83350;
+    --text-body: #F2798C;
+    --text-strong: #F04256;
+    --text-muted: #B3001B;
+    --border-main: #4D0013;
     --border-scheme: #C40020;
-    --link-color: #FF6B82;
-    --link-hover: #FFB3C1;
+    --link-color: #E61B3C;
+    --link-hover: #F06474;
     --badge-bg: #B3001B;
-    --badge-text: #FFE0E6;
+    --badge-text: #f0d0d0;
     --id-bg: #1F0010;
-    --id-text: #FFE0E6;
+    --id-text: #F2798C;
     --btn-bg: #3A0018;
-    --btn-border: #99001A;
-    --btn-text: #FF9EB0;
+    --btn-border: #7F0016;
+    --btn-text: #D40B2E;
     --btn-hover-bg: #99001A;
     --btn-hover-border: #E61B3C;
     --btn-hover-text: #ffffff;
     --copy-bg: #3A0018;
-    --copy-border: #99001A;
-    --copy-text: #FF9EB0;
+    --copy-border: #7F0016;
+    --copy-text: #D40B2E;
     --copy-hover-bg: #99001A;
     --copy-hover-border: #E61B3C;
     --copy-hover-text: #ffffff;
-    --footer-color: #D0808C;
+    /* 页脚颜色调亮 */
+    --footer-color: #FFB0C0;
 }
 
-/* ===== 基础重置 ===== */
+/* ===== 专门提亮描述文字 ===== */
+.theme-dark .server-desc {
+    color: #FFE8EE;  /* 极亮粉白，清晰可读 */
+}
+
+/* ===== 基础重置（不变） ===== */
 * {
     margin: 0;
     padding: 0;
