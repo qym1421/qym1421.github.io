@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>qym1421.■■■.■</title>
+    <title>联机 · 裁决</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">   <!-- 无主题类，默认亮色 -->
+    <div id="app">
         <!-- 顶部控制栏 -->
         <div class="control-bar">
             <div class="lang-group">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <!-- 中文内容 -->
+        <!-- ===== 中文内容 ===== -->
         <div id="content-zh" class="content active">
             <header>
                 <h1 id="zh-title">联机指南</h1>
@@ -32,6 +32,7 @@
             <section class="tutorial">
                 <h2>想与 Qiuym 联机体验？</h2>
 
+                <!-- 方案一 -->
                 <div class="scheme">
                     <h3>方案一：ZeroTier One <span class="badge">最多10人</span></h3>
                     <ul class="links">
@@ -52,6 +53,7 @@
                     </p>
                 </div>
 
+                <!-- 方案二 -->
                 <div class="scheme">
                     <h3>方案二：Astral</h3>
                     <ul class="links">
@@ -70,6 +72,16 @@
                     </p>
                 </div>
 
+                <!-- ★ 新增：测试服务器板块 ★ -->
+                <div class="scheme" id="zh-server-test">
+                    <h3 id="zh-server-title">想参加 QiusMob 的测试服务器？</h3>
+                    <ul class="links">
+                        <li><strong>整合包下载：</strong> <a href="download/QiusMob%20Client%20Package%20(for%20Server%20Use)_v1.1.1.zip" target="_blank">QiusMob Client Package (for Server Use)_v1.1.1.zip</a></li>
+                    </ul>
+                    <p id="zh-server-desc">服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP <code>10.48.0.1</code> 即可。</p>
+                </div>
+
+                <!-- 项目 -->
                 <div class="project">
                     <h2>想下载 Qiuym 的项目？</h2>
                     <p>欢迎访问 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a></p>
@@ -81,7 +93,7 @@
             </footer>
         </div>
 
-        <!-- 英文内容 -->
+        <!-- ===== 英文内容 ===== -->
         <div id="content-en" class="content">
             <header>
                 <h1 id="en-title">Connection Guide</h1>
@@ -91,6 +103,7 @@
             <section class="tutorial">
                 <h2>Want to play with Qiuym?</h2>
 
+                <!-- 方案一 -->
                 <div class="scheme">
                     <h3>Option 1: ZeroTier One <span class="badge">up to 10 players</span></h3>
                     <ul class="links">
@@ -111,6 +124,7 @@
                     </p>
                 </div>
 
+                <!-- 方案二 -->
                 <div class="scheme">
                     <h3>Option 2: Astral</h3>
                     <ul class="links">
@@ -129,6 +143,16 @@
                     </p>
                 </div>
 
+                <!-- ★ 新增：测试服务器板块 ★ -->
+                <div class="scheme" id="en-server-test">
+                    <h3 id="en-server-title">Want to join QiusMob test server?</h3>
+                    <ul class="links">
+                        <li><strong>Package download:</strong> <a href="download/QiusMob%20Client%20Package%20(for%20Server%20Use)_v1.1.1.zip" target="_blank">QiusMob Client Package (for Server Use)_v1.1.1.zip</a></li>
+                    </ul>
+                    <p id="en-server-desc">The server runs on Qiuym's phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP <code>10.48.0.1</code>.</p>
+                </div>
+
+                <!-- 项目 -->
                 <div class="project">
                     <h2>Want Qiuym's projects?</h2>
                     <p>Visit <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a></p>
@@ -147,9 +171,14 @@
             const zhTitle = document.getElementById('zh-title');
             const zhSub = document.getElementById('zh-sub');
             const zhFooter = document.getElementById('zh-footer');
+            const zhServerTitle = document.getElementById('zh-server-title');
+            const zhServerDesc = document.getElementById('zh-server-desc');
+
             const enTitle = document.getElementById('en-title');
             const enSub = document.getElementById('en-sub');
             const enFooter = document.getElementById('en-footer');
+            const enServerTitle = document.getElementById('en-server-title');
+            const enServerDesc = document.getElementById('en-server-desc');
 
             const langBtns = document.querySelectorAll('.lang-btn');
             const styleBtns = document.querySelectorAll('.style-btn');
@@ -163,22 +192,27 @@
                 zhTitle.textContent = isDark ? '呀，你找到我了呀？' : '联机指南';
                 zhSub.textContent = isDark ? '乖乖留下来吧~' : '简单几步，即可联机';
                 zhFooter.textContent = isDark ? '你喜欢我？' : '— 完 —';
+                zhServerTitle.textContent = isDark ? '呀，你也想参加主人的测试服吗？' : '想参加 QiusMob 的测试服务器？';
+                zhServerDesc.textContent = isDark 
+                    ? '主人的手机开着服务器呢，安装了整合包就能连上哦。用 ZeroTier 或 Astral 连上网络，再连接到 IP 10.48.0.1，就能和主人一起玩啦~'
+                    : '服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP 10.48.0.1 即可。';
 
                 // 英文
                 enTitle.textContent = isDark ? 'Oh my, you found me?' : 'Connection Guide';
                 enSub.textContent = isDark ? 'Stay with me, okay~' : 'Get started in a few steps';
                 enFooter.textContent = isDark ? 'Do you like me?' : '— End —';
+                enServerTitle.textContent = isDark ? 'Oh, you want to join master\'s test server too?' : 'Want to join QiusMob test server?';
+                enServerDesc.textContent = isDark 
+                    ? 'Master\'s phone is hosting the server. Install the package and connect via ZeroTier or Astral, then connect to IP 10.48.0.1 to play with master~'
+                    : 'The server runs on Qiuym\'s phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP 10.48.0.1.';
             }
 
             // ---- 风格切换 ----
             function setTheme(theme) {
-                // 更新按钮激活状态
                 styleBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.theme === theme);
                 });
-                // 切换暗黑类
                 app.classList.toggle('theme-dark', theme === 'dark');
-                // 更新文案
                 updateThemeTexts(theme);
             }
 
