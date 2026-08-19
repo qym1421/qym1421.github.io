@@ -268,12 +268,12 @@ footer {
 }
 
 /* 复制按钮 */
-.copy-btn {
-    background: transparent;
-    border: 1px solid var(--c6);
-    color: var(--c11);
+#app .copy-btn {
+    background: var(--c2);          /* 深红底，非透明 */
+    border: 1px solid var(--c7);
+    color: var(--c12);              /* 亮红文字 */
     font-size: 0.65rem;
-    padding: 0.1rem 0.7rem;
+    padding: 0.1rem 0.8rem;
     border-radius: 14px;
     cursor: pointer;
     margin-left: 0.6rem;
@@ -282,16 +282,19 @@ footer {
     vertical-align: middle;
     font-weight: 300;
     letter-spacing: 0.3px;
+    box-shadow: none;               /* 去除默认阴影 */
+    appearance: none;               /* 去除系统按钮样式 */
+    -webkit-appearance: none;
 }
 
-.copy-btn:hover {
-    background-color: var(--c6);
-    color: #fff;
+#app .copy-btn:hover {
+    background: var(--c6);
     border-color: var(--c10);
+    color: #fff;
 }
 
-.copy-btn.copied {
-    background-color: var(--c9);
+#app .copy-btn.copied {
+    background: var(--c9);
     border-color: var(--c9);
     color: #fff;
 }
