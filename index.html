@@ -8,13 +8,13 @@
 </head>
 <body>
     <div id="app">
-        <!-- 语言切换栏 -->
+        <!-- 语言切换 -->
         <div class="lang-bar">
             <button class="lang-btn active" data-lang="zh">中文</button>
             <button class="lang-btn" data-lang="en">English</button>
         </div>
 
-        <!-- 中文内容 -->
+        <!-- 中文 -->
         <div id="content-zh" class="content active">
             <header>
                 <h1>哼。联机。</h1>
@@ -37,7 +37,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <p class="net-id"><strong>Network ID</strong> <span class="id">3b19b3a716bddde9</span></p>
+                    <p class="net-id">
+                        <strong>Network ID</strong>
+                        <span class="id">3b19b3a716bddde9</span>
+                        <button class="copy-btn" data-copy="3b19b3a716bddde9">复制</button>
+                    </p>
                 </div>
 
                 <div class="scheme">
@@ -51,7 +55,11 @@
                         </li>
                         <li><strong>网盘链接：</strong> <a href="https://wwbbs.lanzouq.com/iJL3G41gvura" target="_blank">蓝奏云</a> 密码: fn8c (非最新，内置Github可更新)</li>
                     </ul>
-                    <p class="room"><strong>房间号</strong> <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span></p>
+                    <p class="room">
+                        <strong>房间号</strong>
+                        <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span>
+                        <button class="copy-btn" data-copy="astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA">复制</button>
+                    </p>
                 </div>
 
                 <div class="project">
@@ -65,7 +73,7 @@
             </footer>
         </div>
 
-        <!-- 英文内容 -->
+        <!-- 英文 -->
         <div id="content-en" class="content">
             <header>
                 <h1>Hmph. Connect.</h1>
@@ -88,7 +96,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <p class="net-id"><strong>Network ID</strong> <span class="id">3b19b3a716bddde9</span></p>
+                    <p class="net-id">
+                        <strong>Network ID</strong>
+                        <span class="id">3b19b3a716bddde9</span>
+                        <button class="copy-btn" data-copy="3b19b3a716bddde9">Copy</button>
+                    </p>
                 </div>
 
                 <div class="scheme">
@@ -102,7 +114,11 @@
                         </li>
                         <li><strong>Cloud link:</strong> <a href="https://wwbbs.lanzouq.com/iJL3G41gvura" target="_blank">Lanzou</a> Password: fn8c (not latest, update via built-in GitHub)</li>
                     </ul>
-                    <p class="room"><strong>Room code</strong> <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span></p>
+                    <p class="room">
+                        <strong>Room code</strong>
+                        <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span>
+                        <button class="copy-btn" data-copy="astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA">Copy</button>
+                    </p>
                 </div>
 
                 <div class="project">
@@ -119,16 +135,15 @@
 
     <script>
         (function() {
+            // 语言切换
             const btns = document.querySelectorAll('.lang-btn');
             const zh = document.getElementById('content-zh');
             const en = document.getElementById('content-en');
 
             function setLang(lang) {
-                // 切换按钮激活状态
                 btns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
-                // 显示对应内容
                 if (lang === 'zh') {
                     zh.classList.add('active');
                     en.classList.remove('active');
@@ -139,13 +154,54 @@
             }
 
             btns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const lang = this.dataset.lang;
-                    setLang(lang);
+                btn.addEventListener('click', function() {
+                    setLang(this.dataset.lang);
                 });
             });
 
-            // 默认中文（已通过HTML类 active 设置）
+            // 复制功能
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const text = this.getAttribute('data-copy');
+                    if (!text) return;
+
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            showCopied(this);
+                        }).catch(() => {
+                            fallbackCopy(text, this);
+                        });
+                    } else {
+                        fallbackCopy(text, this);
+                    }
+                });
+            });
+
+            function fallbackCopy(text, btn) {
+                const input = document.createElement('input');
+                input.value = text;
+                input.style.position = 'fixed';
+                input.style.opacity = '0';
+                document.body.appendChild(input);
+                input.select();
+                try {
+                    document.execCommand('copy');
+                    showCopied(btn);
+                } catch (err) {}
+                document.body.removeChild(input);
+            }
+
+            function showCopied(btn) {
+                const original = btn.textContent;
+                btn.textContent = '✔';
+                btn.classList.add('copied');
+                clearTimeout(btn._timer);
+                btn._timer = setTimeout(() => {
+                    btn.textContent = original;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }
         })();
     </script>
 </body>
