@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>qym1421.■■■.■</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>qym1421</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="app">
-        <!-- 顶部控制栏 -->
+        <!-- 控制栏：语言 + 风格 -->
         <div class="control-bar">
             <div class="lang-group">
                 <span class="label">语言</span>
@@ -22,71 +22,22 @@
             </div>
         </div>
 
-        <!-- ===== 中文内容 ===== -->
-        <div id="content-zh" class="content active">
+        <!-- 中文首页 -->
+        <div id="home-zh" class="content active">
             <header>
-                <h1 id="zh-title">联机指南</h1>
-                <p id="zh-sub" class="sub">简单几步，即可联机</p>
+                <h1 id="zh-title">qym1421</h1>
+                <p id="zh-sub" class="sub">—— 随便写点什么 ——</p>
             </header>
 
-            <section class="tutorial">
-                <h2>想与 Qiuym 联机体验？</h2>
-
-                <!-- 方案一 -->
-                <div class="scheme">
-                    <h3>方案一：ZeroTier One <span class="badge">最多10人</span></h3>
-                    <ul class="links">
-                        <li><strong>官网下载：</strong><a href="https://www.zerotier.com/download/" target="_blank">https://www.zerotier.com/download/</a></li>
-                        <li><strong>网盘链接：</strong>
-                            <ul>
-                                <li><strong>Linux arm64:</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">链接一</a> · <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-L2jQd" target="_blank">链接二</a></li>
-                                <li><strong>Linux amd64:</strong> 请到官网下载。</li>
-                                <li><strong>MacOS:</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">下载</a></li>
-                                <li><strong>Windows(x86_64):</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">下载</a>（32/64位通用）</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p class="net-id">
-                        <strong>Network ID</strong>
-                        <span class="id">3b19b3a716bddde9</span>
-                        <button class="copy-btn" data-copy="3b19b3a716bddde9">复制</button>
-                    </p>
-                </div>
-
-                <!-- 方案二 -->
-                <div class="scheme">
-                    <h3>方案二：Astral</h3>
-                    <ul class="links">
-                        <li><strong>官网下载：</strong>
-                            <ul>
-                                <li><a href="https://astral.fan/quick-start/download-install/" target="_blank">路线一（夸克网盘）</a></li>
-                                <li><a href="https://github.com/ldoubil/astral/releases/tag/v2.9.12" target="_blank">路线二（GitHub）</a></li>
-                            </ul>
-                        </li>
-                        <li><strong>网盘链接：</strong> <a href="https://wwbbs.lanzouq.com/iJL3G41gvura" target="_blank">蓝奏云</a> 密码: fn8c (非最新，内置Github可更新)</li>
-                    </ul>
-                    <p class="room">
-                        <strong>房间号</strong>
-                        <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span>
-                        <button class="copy-btn" data-copy="astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA">复制</button>
-                    </p>
-                </div>
-
-                <!-- ★ 新增：测试服务器板块 ★ -->
-                <div class="scheme" id="zh-server-test">
-                    <h3 id="zh-server-title">想参加 QiusMob 的测试服务器？</h3>
-                    <ul class="links">
-                        <li><strong>整合包下载：</strong> <a href="download/QiusMob%20Client%20Package%20(for%20Server%20Use)_v1.1.1.zip" target="_blank">QiusMob Client Package (for Server Use)_v1.1.1.zip</a></li>
-                    </ul>
-                    <!-- 描述加上了 class="server-desc" -->
-                    <p id="zh-server-desc" class="server-desc">服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP <code>10.48.0.1</code> 即可。</p>
-                </div>
-
-                <!-- 项目 -->
-                <div class="project">
-                    <h2>想下载 Qiuym 的项目？</h2>
-                    <p>欢迎访问 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a></p>
-                </div>
+            <section class="home-body">
+                <p>这里是 Qiuym 的用户首页。</p>
+                <p>当前没什么可看的，但如果你迷路了——</p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="tutorial/" class="home-link">→ 去联机指南 ←</a>
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                    或者直接去 <a href="https://github.com/qym1421" target="_blank">GitHub</a>
+                </p>
             </section>
 
             <footer>
@@ -94,71 +45,22 @@
             </footer>
         </div>
 
-        <!-- ===== 英文内容 ===== -->
-        <div id="content-en" class="content">
+        <!-- 英文首页 -->
+        <div id="home-en" class="content">
             <header>
-                <h1 id="en-title">Connection Guide</h1>
-                <p id="en-sub" class="sub">Get started in a few steps</p>
+                <h1 id="en-title">qym1421</h1>
+                <p id="en-sub" class="sub">—— just some placeholder ——</p>
             </header>
 
-            <section class="tutorial">
-                <h2>Want to play with Qiuym?</h2>
-
-                <!-- 方案一 -->
-                <div class="scheme">
-                    <h3>Option 1: ZeroTier One <span class="badge">up to 10 players</span></h3>
-                    <ul class="links">
-                        <li><strong>Official site:</strong> <a href="https://www.zerotier.com/download/" target="_blank">https://www.zerotier.com/download/</a></li>
-                        <li><strong>Cloud links:</strong>
-                            <ul>
-                                <li><strong>Linux arm64:</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">Link 1</a> · <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-L2jQd" target="_blank">Link 2</a></li>
-                                <li><strong>Linux amd64:</strong> Download from official site.</li>
-                                <li><strong>MacOS:</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">Download</a></li>
-                                <li><strong>Windows(x86_64):</strong> <a href="https://1847638099.share.123pan.cn/123pan/2h2dvd-NanQd" target="_blank">Download</a> (32/64-bit universal)</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <p class="net-id">
-                        <strong>Network ID</strong>
-                        <span class="id">3b19b3a716bddde9</span>
-                        <button class="copy-btn" data-copy="3b19b3a716bddde9">Copy</button>
-                    </p>
-                </div>
-
-                <!-- 方案二 -->
-                <div class="scheme">
-                    <h3>Option 2: Astral</h3>
-                    <ul class="links">
-                        <li><strong>Official site:</strong>
-                            <ul>
-                                <li><a href="https://astral.fan/quick-start/download-install/" target="_blank">Route 1 (Quark)</a></li>
-                                <li><a href="https://github.com/ldoubil/astral/releases/tag/v2.9.12" target="_blank">Route 2 (GitHub)</a></li>
-                            </ul>
-                        </li>
-                        <li><strong>Cloud link:</strong> <a href="https://wwbbs.lanzouq.com/iJL3G41gvura" target="_blank">Lanzou</a> Password: fn8c (not latest, update via built-in GitHub)</li>
-                    </ul>
-                    <p class="room">
-                        <strong>Room code</strong>
-                        <span class="code">astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA</span>
-                        <button class="copy-btn" data-copy="astral://room?code=H4sIAAAAAAAAAxXHsQrCMBRA0V-Ru7iE9r0iTfL-wcFZHCRU6JAam3Qo4r9Lz3a-LBi3edvzuZ6u8zKl9flqOFaM4MdRBxzlSJQYjmQMHBOmjordaalY3-fU7Z_auvYupioqPBwJQ33wKhovfhDh9wevDtf8dAAAAA">Copy</button>
-                    </p>
-                </div>
-
-                <!-- ★ 新增：测试服务器板块 ★ -->
-                <div class="scheme" id="en-server-test">
-                    <h3 id="en-server-title">Want to join QiusMob test server?</h3>
-                    <ul class="links">
-                        <li><strong>Package download:</strong> <a href="download/QiusMob%20Client%20Package%20(for%20Server%20Use)_v1.1.1.zip" target="_blank">QiusMob Client Package (for Server Use)_v1.1.1.zip</a></li>
-                    </ul>
-                    <!-- 描述加上了 class="server-desc" -->
-                    <p id="en-server-desc" class="server-desc">The server runs on Qiuym's phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP <code>10.48.0.1</code>.</p>
-                </div>
-
-                <!-- 项目 -->
-                <div class="project">
-                    <h2>Want Qiuym's projects?</h2>
-                    <p>Visit <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a></p>
-                </div>
+            <section class="home-body">
+                <p>This is Qiuym's user homepage.</p>
+                <p>Nothing much here yet, but if you're lost—</p>
+                <p style="margin-top: 1.5rem;">
+                    <a href="tutorial/" class="home-link">→ Go to Tutorial ←</a>
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                    or head to <a href="https://github.com/qym1421" target="_blank">GitHub</a>
+                </p>
             </section>
 
             <footer>
@@ -169,68 +71,17 @@
 
     <script>
         (function() {
-            // ---- DOM 元素 ----
-            const zhTitle = document.getElementById('zh-title');
-            const zhSub = document.getElementById('zh-sub');
-            const zhFooter = document.getElementById('zh-footer');
-            const zhServerTitle = document.getElementById('zh-server-title');
-            const zhServerDesc = document.getElementById('zh-server-desc');
-
-            const enTitle = document.getElementById('en-title');
-            const enSub = document.getElementById('en-sub');
-            const enFooter = document.getElementById('en-footer');
-            const enServerTitle = document.getElementById('en-server-title');
-            const enServerDesc = document.getElementById('en-server-desc');
-
-            const langBtns = document.querySelectorAll('.lang-btn');
-            const styleBtns = document.querySelectorAll('.style-btn');
-            const app = document.getElementById('app');
-
-            // ---- 根据主题更新文案 ----
-            function updateThemeTexts(theme) {
-                const isDark = (theme === 'dark');
-
-                // 中文
-                zhTitle.textContent = isDark ? '呀，你找到我了呀？' : '联机指南';
-                zhSub.textContent = isDark ? '乖乖留下来吧~' : '简单几步，即可联机';
-                zhFooter.textContent = isDark ? '你喜欢我？' : '— 完 —';
-                zhServerTitle.textContent = isDark ? '呀，你也想参加主人的测试服吗？' : '想参加 QiusMob 的测试服务器？';
-                zhServerDesc.textContent = isDark 
-                    ? '主人的手机开着服务器呢，安装了整合包就能连上哦。用 ZeroTier 或 Astral 连上网络，再连接到 IP 10.48.0.1，就能和主人一起玩啦~'
-                    : '服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP 10.48.0.1 即可。';
-
-                // 英文
-                enTitle.textContent = isDark ? 'Oh my, you found me?' : 'Connection Guide';
-                enSub.textContent = isDark ? 'Stay with me, okay~' : 'Get started in a few steps';
-                enFooter.textContent = isDark ? 'Do you like me?' : '— End —';
-                enServerTitle.textContent = isDark ? 'Oh, you want to join master\'s test server too?' : 'Want to join QiusMob test server?';
-                enServerDesc.textContent = isDark 
-                    ? 'Master\'s phone is hosting the server. Install the package and connect via ZeroTier or Astral, then connect to IP 10.48.0.1 to play with master~'
-                    : 'The server runs on Qiuym\'s phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP 10.48.0.1.';
-            }
-
-            // ---- 风格切换 ----
-            function setTheme(theme) {
-                styleBtns.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.theme === theme);
-                });
-                app.classList.toggle('theme-dark', theme === 'dark');
-                updateThemeTexts(theme);
-            }
-
-            styleBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    setTheme(this.dataset.theme);
-                });
-            });
-
             // ---- 语言切换 ----
+            const langBtns = document.querySelectorAll('.lang-btn');
+            const zh = document.getElementById('home-zh');
+            const en = document.getElementById('home-en');
+
             function setLang(lang) {
                 langBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
-                document.getElementById('content-zh').classList.toggle('active', lang === 'zh');
-                document.getElementById('content-en').classList.toggle('active', lang === 'en');
+                zh.classList.toggle('active', lang === 'zh');
+                en.classList.toggle('active', lang === 'en');
             }
 
             langBtns.forEach(btn => {
@@ -239,51 +90,24 @@
                 });
             });
 
-            // ---- 复制功能 ----
-            document.querySelectorAll('.copy-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const text = this.getAttribute('data-copy');
-                    if (!text) return;
+            // ---- 风格切换 ----
+            const styleBtns = document.querySelectorAll('.style-btn');
+            const app = document.getElementById('app');
 
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(text).then(() => {
-                            showCopied(this);
-                        }).catch(() => {
-                            fallbackCopy(text, this);
-                        });
-                    } else {
-                        fallbackCopy(text, this);
-                    }
+            function setTheme(theme) {
+                styleBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.theme === theme);
+                });
+                app.classList.toggle('theme-dark', theme === 'dark');
+            }
+
+            styleBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
                 });
             });
 
-            function fallbackCopy(text, btn) {
-                const input = document.createElement('input');
-                input.value = text;
-                input.style.position = 'fixed';
-                input.style.opacity = '0';
-                document.body.appendChild(input);
-                input.select();
-                try {
-                    document.execCommand('copy');
-                    showCopied(btn);
-                } catch (err) {}
-                document.body.removeChild(input);
-            }
-
-            function showCopied(btn) {
-                const original = btn.textContent;
-                btn.textContent = '✔';
-                btn.classList.add('copied');
-                clearTimeout(btn._timer);
-                btn._timer = setTimeout(() => {
-                    btn.textContent = original;
-                    btn.classList.remove('copied');
-                }, 2000);
-            }
-
-            // ---- 初始化：默认亮色 ----
+            // ---- 初始化 ----
             setTheme('light');
         })();
     </script>
