@@ -186,142 +186,218 @@
 
     <script>
         (function() {
-            // ---- 中文 DOM ----
-            const zhTitle = document.getElementById('zh-title');
-            const zhSub = document.getElementById('zh-sub');
-            const zhFooter = document.getElementById('zh-footer');
-            const zhSection1Title = document.getElementById('zh-section1-title');
-            const zhZtTitle = document.getElementById('zh-zt-title');
-            const zhZtOfficial = document.getElementById('zh-zt-official');
-            const zhZtCloud = document.getElementById('zh-zt-cloud');
-            const zhZtDirect = document.getElementById('zh-zt-direct');
-            const zhZtNetid = document.getElementById('zh-zt-netid');
-            const zhZtCopy = document.getElementById('zh-zt-copy');
-            const zhAstralTitle = document.getElementById('zh-astral-title');
-            const zhAstralOfficial = document.getElementById('zh-astral-official');
-            const zhAstralCloud = document.getElementById('zh-astral-cloud');
-            const zhAstralRoom = document.getElementById('zh-astral-room');
-            const zhAstralCopy = document.getElementById('zh-astral-copy');
-            const zhServerTitle = document.getElementById('zh-server-title');
-            const zhServerDl = document.getElementById('zh-server-dl');
-            const zhServerDesc = document.getElementById('zh-server-desc');
-            const zhProjectTitle = document.getElementById('zh-project-title');
-            const zhProjectDesc = document.getElementById('zh-project-desc');
-
-            // ---- 英文 DOM ----
-            const enTitle = document.getElementById('en-title');
-            const enSub = document.getElementById('en-sub');
-            const enFooter = document.getElementById('en-footer');
-            const enSection1Title = document.getElementById('en-section1-title');
-            const enZtTitle = document.getElementById('en-zt-title');
-            const enZtOfficial = document.getElementById('en-zt-official');
-            const enZtCloud = document.getElementById('en-zt-cloud');
-            const enZtDirect = document.getElementById('en-zt-direct');
-            const enZtNetid = document.getElementById('en-zt-netid');
-            const enZtCopy = document.getElementById('en-zt-copy');
-            const enAstralTitle = document.getElementById('en-astral-title');
-            const enAstralOfficial = document.getElementById('en-astral-official');
-            const enAstralCloud = document.getElementById('en-astral-cloud');
-            const enAstralRoom = document.getElementById('en-astral-room');
-            const enAstralCopy = document.getElementById('en-astral-copy');
-            const enServerTitle = document.getElementById('en-server-title');
-            const enServerDl = document.getElementById('en-server-dl');
-            const enServerDesc = document.getElementById('en-server-desc');
-            const enProjectTitle = document.getElementById('en-project-title');
-            const enProjectDesc = document.getElementById('en-project-desc');
-
-            const langBtns = document.querySelectorAll('.lang-btn');
-            const styleBtns = document.querySelectorAll('.style-btn');
-            const app = document.getElementById('app');
-
-            // ---- 文案更新 ----
-            function updateThemeTexts(theme) {
-                const isDark = (theme === 'dark');
-
-                // ===== 中文 =====
-                zhTitle.textContent = isDark ? '呀，你找到我了呀？' : '联机指南';
-                zhSub.textContent = isDark ? '乖乖留下来吧~' : '简单几步，即可联机';
-                zhFooter.textContent = isDark ? '你喜欢我？' : '— 完 —';
-                zhSection1Title.textContent = isDark ? '想跟主人一起玩吗？' : '想与 Qiuym 联机体验？';
-                zhZtTitle.innerHTML = isDark ? '方案一：ZeroTier One <span class="badge">最多10人</span>' : '方案一：ZeroTier One <span class="badge">最多10人</span>';
-                zhZtOfficial.textContent = isDark ? '官网（哼，懒得解释）：' : '官网下载：';
-                zhZtCloud.textContent = isDark ? '备用网盘（以防你找不到）：' : '网盘链接：';
-                zhZtDirect.textContent = isDark ? '直接下载（我的珍藏）：' : '直接下载：';
-                zhZtNetid.textContent = isDark ? 'Network ID（记好了）：' : 'Network ID';
-                zhZtCopy.textContent = isDark ? '复制（别说我没帮你）' : '复制';
-                zhAstralTitle.textContent = isDark ? '方案二：Astral（这个也不错啦）' : '方案二：Astral';
-                zhAstralOfficial.textContent = isDark ? '官网（有两条路哦）：' : '官网下载：';
-                zhAstralCloud.textContent = isDark ? '网盘（密码自己看）：' : '网盘链接：';
-                zhAstralRoom.textContent = isDark ? '房间号（别弄丢了）：' : '房间号';
-                zhAstralCopy.textContent = isDark ? '复制（哼，拿好）' : '复制';
-                zhServerTitle.textContent = isDark ? '呀，你也想参加主人的测试服吗？' : '想参加 QiusMob 的测试服务器？';
-                zhServerDl.textContent = isDark ? '整合包下载（给你）：' : '整合包下载：';
-                zhServerDesc.textContent = isDark 
-                    ? '主人的手机开着服务器呢，安装了整合包就能连上哦。用 ZeroTier 或 Astral 连上网络，再连接到 IP 10.48.0.1，就能和主人一起玩啦~'
-                    : '服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP 10.48.0.1 即可。';
-                zhProjectTitle.textContent = isDark ? '想下载主人的项目？' : '想下载 Qiuym 的项目？';
-                zhProjectDesc.innerHTML = isDark 
-                    ? '来 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a> 看看吧（哼，才不是特意给你准备的）'
-                    : '欢迎访问 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a>';
-
-                // ===== 英文 =====
-                enTitle.textContent = isDark ? 'Oh my, you found me?' : 'Connection Guide';
-                enSub.textContent = isDark ? 'Stay with me, okay~' : 'Get started in a few steps';
-                enFooter.textContent = isDark ? 'Do you like me?' : '— End —';
-                enSection1Title.textContent = isDark ? 'Want to play with master?' : 'Want to play with Qiuym?';
-                enZtTitle.innerHTML = isDark ? 'Option 1: ZeroTier One <span class="badge">up to 10 players</span>' : 'Option 1: ZeroTier One <span class="badge">up to 10 players</span>';
-                enZtOfficial.textContent = isDark ? 'Official site (hmph):' : 'Official site:';
-                enZtCloud.textContent = isDark ? 'Backup links (just in case):' : 'Cloud links:';
-                enZtDirect.textContent = isDark ? 'Direct download (my collection):' : 'Direct download:';
-                enZtNetid.textContent = isDark ? 'Network ID (remember it):' : 'Network ID';
-                enZtCopy.textContent = isDark ? 'Copy (you\'re welcome)' : 'Copy';
-                enAstralTitle.textContent = isDark ? 'Option 2: Astral (this one\'s fine too)' : 'Option 2: Astral';
-                enAstralOfficial.textContent = isDark ? 'Official site (two routes):' : 'Official site:';
-                enAstralCloud.textContent = isDark ? 'Cloud link (password included):' : 'Cloud link:';
-                enAstralRoom.textContent = isDark ? 'Room code (don\'t lose it):' : 'Room code';
-                enAstralCopy.textContent = isDark ? 'Copy (here you go)' : 'Copy';
-                enServerTitle.textContent = isDark ? 'Oh, you want to join master\'s test server too?' : 'Want to join QiusMob test server?';
-                enServerDl.textContent = isDark ? 'Package download (for you):' : 'Package download:';
-                enServerDesc.textContent = isDark 
-                    ? 'Master\'s phone is hosting the server. Install the package and connect via ZeroTier or Astral, then connect to IP 10.48.0.1 to play with master~'
-                    : 'The server runs on Qiuym\'s phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP 10.48.0.1.';
-                enProjectTitle.textContent = isDark ? 'Want master\'s projects?' : 'Want Qiuym\'s projects?';
-                enProjectDesc.innerHTML = isDark 
-                    ? 'Check <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a> (not that I prepared it for you)'
-                    : 'Visit <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a>';
+            // ---- DOM 元素映射 ----
+            const elements = {
+                // 中文
+                zh: {
+                    title: document.getElementById('zh-title'),
+                    sub: document.getElementById('zh-sub'),
+                    footer: document.getElementById('zh-footer'),
+                    section1Title: document.getElementById('zh-section1-title'),
+                    ztTitle: document.getElementById('zh-zt-title'),
+                    ztOfficial: document.getElementById('zh-zt-official'),
+                    ztCloud: document.getElementById('zh-zt-cloud'),
+                    ztDirect: document.getElementById('zh-zt-direct'),
+                    ztNetid: document.getElementById('zh-zt-netid'),
+                    ztCopy: document.getElementById('zh-zt-copy'),
+                    astralTitle: document.getElementById('zh-astral-title'),
+                    astralOfficial: document.getElementById('zh-astral-official'),
+                    astralCloud: document.getElementById('zh-astral-cloud'),
+                    astralRoom: document.getElementById('zh-astral-room'),
+                    astralCopy: document.getElementById('zh-astral-copy'),
+                    serverTitle: document.getElementById('zh-server-title'),
+                    serverDl: document.getElementById('zh-server-dl'),
+                    serverDesc: document.getElementById('zh-server-desc'),
+                    projectTitle: document.getElementById('zh-project-title'),
+                    projectDesc: document.getElementById('zh-project-desc'),
+                },
+                // 英文
+                en: {
+                    title: document.getElementById('en-title'),
+                    sub: document.getElementById('en-sub'),
+                    footer: document.getElementById('en-footer'),
+                    section1Title: document.getElementById('en-section1-title'),
+                    ztTitle: document.getElementById('en-zt-title'),
+                    ztOfficial: document.getElementById('en-zt-official'),
+                    ztCloud: document.getElementById('en-zt-cloud'),
+                    ztDirect: document.getElementById('en-zt-direct'),
+                    ztNetid: document.getElementById('en-zt-netid'),
+                    ztCopy: document.getElementById('en-zt-copy'),
+                    astralTitle: document.getElementById('en-astral-title'),
+                    astralOfficial: document.getElementById('en-astral-official'),
+                    astralCloud: document.getElementById('en-astral-cloud'),
+                    astralRoom: document.getElementById('en-astral-room'),
+                    astralCopy: document.getElementById('en-astral-copy'),
+                    serverTitle: document.getElementById('en-server-title'),
+                    serverDl: document.getElementById('en-server-dl'),
+                    serverDesc: document.getElementById('en-server-desc'),
+                    projectTitle: document.getElementById('en-project-title'),
+                    projectDesc: document.getElementById('en-project-desc'),
+                }
+            };
+    
+            // ---- 4 套文案 ----
+            const texts = {
+                'zh-light': {
+                    title: '联机指南',
+                    sub: '简单几步，即可联机',
+                    footer: '— 完 —',
+                    section1Title: '想与 Qiuym 联机体验？',
+                    ztTitle: '方案一：ZeroTier One <span class="badge">最多10人</span>',
+                    ztOfficial: '官网下载：',
+                    ztCloud: '网盘链接：',
+                    ztDirect: '直接下载：',
+                    ztNetid: 'Network ID',
+                    ztCopy: '复制',
+                    astralTitle: '方案二：Astral',
+                    astralOfficial: '官网下载：',
+                    astralCloud: '网盘链接：',
+                    astralRoom: '房间号',
+                    astralCopy: '复制',
+                    serverTitle: '想参加 QiusMob 的测试服务器？',
+                    serverDl: '整合包下载：',
+                    serverDesc: '服务器运行在 Qiuym 的手机上，请先安装整合包，然后使用 ZeroTier 或 Astral 连接对应的网络/房间，最后连接虚拟局域网 IP <code>10.48.0.1</code> 即可。',
+                    projectTitle: '想下载 Qiuym 的项目？',
+                    projectDesc: '欢迎访问 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a>',
+                },
+                'zh-dark': {
+                    title: '呀，你找到我了呀？',
+                    sub: '乖乖留下来吧~',
+                    footer: '你喜欢我？',
+                    section1Title: '想跟主人一起玩吗？',
+                    ztTitle: '方案一：ZeroTier One <span class="badge">最多10人</span>',
+                    ztOfficial: '官网（哼，懒得解释）：',
+                    ztCloud: '备用网盘（以防你找不到）：',
+                    ztDirect: '直接下载（我的珍藏）：',
+                    ztNetid: 'Network ID（记好了）：',
+                    ztCopy: '复制（别说我没帮你）',
+                    astralTitle: '方案二：Astral（这个也不错啦）',
+                    astralOfficial: '官网（有两条路哦）：',
+                    astralCloud: '网盘（密码自己看）：',
+                    astralRoom: '房间号（别弄丢了）：',
+                    astralCopy: '复制（哼，拿好）',
+                    serverTitle: '呀，你也想参加主人的测试服吗？',
+                    serverDl: '整合包下载（给你）：',
+                    serverDesc: '主人的手机开着服务器呢，安装了整合包就能连上哦。用 ZeroTier 或 Astral 连上网络，再连接到 IP 10.48.0.1，就能和主人一起玩啦~',
+                    projectTitle: '想下载主人的项目？',
+                    projectDesc: '来 <a href="https://github.com/qym1421/" target="_blank">GitHub 主页</a> 看看吧（哼，才不是特意给你准备的）',
+                },
+                'en-light': {
+                    title: 'Connection Guide',
+                    sub: 'Get started in a few steps',
+                    footer: '— End —',
+                    section1Title: 'Want to play with Qiuym?',
+                    ztTitle: 'Option 1: ZeroTier One <span class="badge">up to 10 players</span>',
+                    ztOfficial: 'Official site:',
+                    ztCloud: 'Cloud links:',
+                    ztDirect: 'Direct download:',
+                    ztNetid: 'Network ID',
+                    ztCopy: 'Copy',
+                    astralTitle: 'Option 2: Astral',
+                    astralOfficial: 'Official site:',
+                    astralCloud: 'Cloud link:',
+                    astralRoom: 'Room code',
+                    astralCopy: 'Copy',
+                    serverTitle: 'Want to join QiusMob test server?',
+                    serverDl: 'Package download:',
+                    serverDesc: 'The server runs on Qiuym\'s phone. Install the package, use ZeroTier or Astral to join the network/room, then connect to virtual LAN IP <code>10.48.0.1</code>.',
+                    projectTitle: 'Want Qiuym\'s projects?',
+                    projectDesc: 'Visit <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a>',
+                },
+                'en-dark': {
+                    title: 'Oh my, you found me?',
+                    sub: 'Stay with me, okay~',
+                    footer: 'Do you like me?',
+                    section1Title: 'Want to play with master?',
+                    ztTitle: 'Option 1: ZeroTier One <span class="badge">up to 10 players</span>',
+                    ztOfficial: 'Official site (hmph):',
+                    ztCloud: 'Backup links (just in case):',
+                    ztDirect: 'Direct download (my collection):',
+                    ztNetid: 'Network ID (remember it):',
+                    ztCopy: 'Copy (you\'re welcome)',
+                    astralTitle: 'Option 2: Astral (this one\'s fine too)',
+                    astralOfficial: 'Official site (two routes):',
+                    astralCloud: 'Cloud link (password included):',
+                    astralRoom: 'Room code (don\'t lose it):',
+                    astralCopy: 'Copy (here you go)',
+                    serverTitle: 'Oh, you want to join master\'s test server too?',
+                    serverDl: 'Package download (for you):',
+                    serverDesc: 'Master\'s phone is hosting the server. Install the package and connect via ZeroTier or Astral, then connect to IP 10.48.0.1 to play with master~',
+                    projectTitle: 'Want master\'s projects?',
+                    projectDesc: 'Check <a href="https://github.com/qym1421/" target="_blank">GitHub homepage</a> (not that I prepared it for you)',
+                }
+            };
+    
+            // ---- 当前状态 ----
+            let currentLang = 'zh';
+            let currentTheme = 'light';
+    
+            // ---- 渲染函数 ----
+            function render() {
+                const key = currentLang + '-' + currentTheme;
+                const t = texts[key];
+                if (!t) return;
+    
+                const el = elements[currentLang];
+                if (!el) return;
+    
+                el.title.textContent = t.title;
+                el.sub.textContent = t.sub;
+                el.footer.textContent = t.footer;
+                el.section1Title.textContent = t.section1Title;
+                el.ztTitle.innerHTML = t.ztTitle;
+                el.ztOfficial.textContent = t.ztOfficial;
+                el.ztCloud.textContent = t.ztCloud;
+                el.ztDirect.textContent = t.ztDirect;
+                el.ztNetid.textContent = t.ztNetid;
+                el.ztCopy.textContent = t.ztCopy;
+                el.astralTitle.textContent = t.astralTitle;
+                el.astralOfficial.textContent = t.astralOfficial;
+                el.astralCloud.textContent = t.astralCloud;
+                el.astralRoom.textContent = t.astralRoom;
+                el.astralCopy.textContent = t.astralCopy;
+                el.serverTitle.textContent = t.serverTitle;
+                el.serverDl.textContent = t.serverDl;
+                el.serverDesc.innerHTML = t.serverDesc;
+                el.projectTitle.textContent = t.projectTitle;
+                el.projectDesc.innerHTML = t.projectDesc;
             }
-
-            // ---- 风格切换 ----
-            function setTheme(theme) {
-                styleBtns.forEach(btn => {
-                    btn.classList.toggle('active', btn.dataset.theme === theme);
-                });
-                app.classList.toggle('theme-dark', theme === 'dark');
-                updateThemeTexts(theme);
-            }
-
-            styleBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    setTheme(this.dataset.theme);
-                });
-            });
-
+    
             // ---- 语言切换 ----
             function setLang(lang) {
-                langBtns.forEach(btn => {
+                currentLang = lang;
+                document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
                 document.getElementById('content-zh').classList.toggle('active', lang === 'zh');
                 document.getElementById('content-en').classList.toggle('active', lang === 'en');
+                render();
             }
-
-            langBtns.forEach(btn => {
+    
+            // ---- 风格切换 ----
+            function setTheme(theme) {
+                currentTheme = theme;
+                document.querySelectorAll('.style-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.theme === theme);
+                });
+                document.getElementById('app').classList.toggle('theme-dark', theme === 'dark');
+                render();
+            }
+    
+            // ---- 事件绑定 ----
+            document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     setLang(this.dataset.lang);
                 });
             });
-
-            // ---- 复制功能 ----
+    
+            document.querySelectorAll('.style-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setTheme(this.dataset.theme);
+                });
+            });
+    
+            // ---- 复制功能（不变） ----
             document.querySelectorAll('.copy-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -338,7 +414,7 @@
                     }
                 });
             });
-
+    
             function fallbackCopy(text, btn) {
                 const input = document.createElement('input');
                 input.value = text;
@@ -352,7 +428,7 @@
                 } catch (err) {}
                 document.body.removeChild(input);
             }
-
+    
             function showCopied(btn) {
                 const original = btn.textContent;
                 btn.textContent = '✔';
@@ -363,8 +439,9 @@
                     btn.classList.remove('copied');
                 }, 2000);
             }
-
+    
             // ---- 初始化 ----
+            setLang('zh');
             setTheme('light');
         })();
     </script>
